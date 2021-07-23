@@ -101,7 +101,7 @@ buttons = [
 yone_IMG = "https://telegra.ph/file/c17aff68398b64b762446.jpg"
 
 HELP_STRINGS = f"""
-Hey There! My Name is [YUMEKO 🦋](https://telegra.ph/file/8ca65aec5be81642d1859.jpg)
+Hey There! My Name is [YUMEKO 🦋](https://telegra.ph/file/c17aff68398b64b762446.jpg)
 I'm a Heroine For Fun and help admins to manage their groups! 
  
 Main commands available:
