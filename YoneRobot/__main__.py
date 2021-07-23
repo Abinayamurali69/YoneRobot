@@ -89,20 +89,20 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="🤴 OWNER", url="https://t.me/A_viyu"),
+            text="🦋 OWNER", url="https://t.always_caramel"),
         InlineKeyboardButton(
-            text="👥 SUPPORT", url="https://t.me/Kora_Support"
+            text="👥 SUPPORT", url="https://t.me/yumeko_kavai_support"
         ),
     ],
 ]
 
 
 HELP_STRINGS = """
-`Hi.. I'm` [yone🙋‍♀️](https://telegra.ph/file/7e61fe06a9c02747249c4.jpg)
+`Hi.. I'm` [yumeko_kavai 🦋](https://telegra.ph/file/7e61fe06a9c02747249c4.jpg)
 `Click on the buttons below to get documentation about specific modules..`"""
 
 
-yone_IMG = "https://telegra.ph/file/7e61fe06a9c02747249c4.jpg"
+yone_IMG = "https://telegra.ph/file/b6254b29dd1562cae8bb1.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project via [Paypal](#) or by contacting @kittu5588 \
