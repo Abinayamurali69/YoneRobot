@@ -22,7 +22,7 @@ from YoneRobot import (
     pbot,
     updater,
 )
-from .callsmusic import Runn
+
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from YoneRobot.modules import ALL_MODULES
@@ -74,40 +74,45 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-`Hellow` [🦋](https://telegra.ph/file/b6254b29dd1562cae8bb1.jpg) `My name is` *Yumeko kavai*
-`I'm here to help you manage your groups! Hit` *📚Commands*   
+`Hi` [🦋](https://telegra.ph/file/74ee28bc13baf42a03865.jpg) `My name is` *YUMEKO KAVAI ✨*
+`I'm here to help you manage your groups! Hit` *commands*   
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ADD YONE TO YOUR GROUP ➕️", url="t.me/yumekokavai_bot?startgroup=true"),
+            text="🔸 ADD YUMEKO TO YOUR GROUP 🔸", url="t.me/Yumekokavai_bot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="ℹ️ ABOUT", callback_data="yone_"),
-        InlineKeyboardButton(text="📚 COMMANDS", callback_data="help_back"),
+        InlineKeyboardButton(text="ABOUT 👣 ", callback_data="yone_"),
+        InlineKeyboardButton(text="COMMANDS 🦋", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(
-            text="🦋 OWNER", url="https://t.always_caramel"),
+            text="OWNER 🦋", url="https://t.me/always_caramel"),
         InlineKeyboardButton(
-            text="👥 SUPPORT", url="https://t.me/yumeko_kavai_support"
+            text="SUPPORT ✨", url="https://t.me/yumeko_kavai_support"
         ),
     ],
+    
 ]
 
 
-HELP_STRINGS = """
-`Hi.. I'm` [yumeko_kavai 🦋](https://telegra.ph/file/7e61fe06a9c02747249c4.jpg)
-`Click on the buttons below to get documentation about specific modules..`"""
+yone_IMG = "https://telegra.ph/file/c17aff68398b64b762446.jpg"
+
+HELP_STRINGS = f"""
+Hey There! My Name is [YUMEKO 🦋](https://telegra.ph/file/8ca65aec5be81642d1859.jpg)
+I'm a Heroine For Fun and help admins to manage their groups! 
+ 
+Main commands available:
+ ✪ /help: PM's you this message.
+ ✪ /settings:
+   • in PM: will send you your settings for all supported modules.
+   • in a group: will redirect you to pm, with all that chat's settings.
+"""
 
 
-yone_IMG = "https://telegra.ph/file/b6254b29dd1562cae8bb1.jpg"
-
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](#) or by contacting @kittu5588 \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+DONATE_STRING =""" ❤️ """
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -192,18 +197,22 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="help_back")]]
-                    ),
-                )
-
+                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="help_back")
+                    ]]))                                  
+            elif args[0].lower() == "markdownhelp":
+                IMPORTED["extras"].markdown_help_sender(update)
+            elif args[0].lower() == "disasters":
+                IMPORTED["disasters"].send_disasters(update)
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
                 chat = dispatcher.bot.getChat(match.group(1))
 
                 if is_user_admin(chat, update.effective_user.id):
-                    send_settings(match.group(1), update.effective_user.id, False)
+                    send_settings(
+                        match.group(1), update.effective_user.id, False)
                 else:
-                    send_settings(match.group(1), update.effective_user.id, True)
+                    send_settings(
+                        match.group(1), update.effective_user.id, True)
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
@@ -217,7 +226,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            "I'm awake already 😘\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -352,16 +361,14 @@ def yone_about_callback(update, context):
     query = update.callback_query
     if query.data == "yone_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *yone*, a powerful group management bot built to help you manage your group easily.
-                 \n❍ I can restrict users.
-                 \n❍ I can greet users with customizable welcome messages and even set a group's rules.
-                 \n❍ I have an advanced anti-flood system.
-                 \n❍ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
-                 \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
-                 \n❍ I check for admins' permissions before executing any command and more stuffs
-                 \n\n_yone's licensed under the GNU General Public License v3.0_
-                 \nHere is the [💾Repository](https://github.com/noob-kittu/YoneRobot).
-                 \n\nIf you have any question about yone, let us know at .""",
+            text="""  I'm *YUMEKO 🦋*, a powerful group management bot built to help you manage your group easily.
+                 \n✪ I can restrict users.
+                 \n✪ I can greet users with customizable welcome messages and even set a group's rules.
+                 \n✪ I have an advanced anti-flood system.
+                 \n✪ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
+                 \n✪ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
+                 \n✪ I check for admins' permissions before executing any command and more stuffs                            
+                 \n\nIf you have any question about yone, let us know at [YUMEKO SUPPORT 🤍](https://t.me/yumeko_kavai_support) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -682,7 +689,7 @@ def migrate_chats(update: Update, context: CallbackContext):
 def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive 😹")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive 😘")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
