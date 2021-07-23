@@ -98,10 +98,10 @@ buttons = [
 ]
 
 
-yone_IMG = "https://telegra.ph/file/c17aff68398b64b762446.jpg"
+yone_IMG = "https://telegra.ph/file/b6254b29dd1562cae8bb1.jpg"
 
 HELP_STRINGS = f"""
-Hey There! My Name is [YUMEKO 🦋](https://telegra.ph/file/c17aff68398b64b762446.jpg)
+Hey There! My Name is [YUMEKO 🦋](https://telegra.ph/file/b6254b29dd1562cae8bb1.jpg)
 I'm a Heroine For Fun and help admins to manage their groups! 
  
 Main commands available:
