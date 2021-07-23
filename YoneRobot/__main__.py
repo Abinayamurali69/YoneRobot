@@ -1,3 +1,4 @@
+
 import importlib
 import time
 import re
@@ -751,3 +752,7 @@ if __name__ == "__main__":
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
+
+
+
+#t.me/QueenJNC_Bot by @kmax_01
